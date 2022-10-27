@@ -23,7 +23,7 @@
 #register {
     position: absolute;
     left: calc(50% - (184px/2));
-    bottom: 50px;
+    bottom: 65px;
 }
 
 #register .btn {
@@ -31,19 +31,6 @@
     display: block;
 }
 
-#register .btn:nth-child(1) {
-    background-color: rgb(251, 188, 0);
-}
-
-#register .btn:nth-child(1) > a {
-    color: white;
-}
-
 #register .btn:nth-child(2) {
     padding: 14px 58px;
-    background-color: rgb(255, 255, 255);
-}
-
-#register .btn:nth-child(2) > a {
-    color: black;
 }

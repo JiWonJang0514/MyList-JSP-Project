@@ -7,7 +7,7 @@
 }
 
 .wrppaer {
-    margin: auto;
+    margin: 30px auto 0 auto;
     width: 500px;
     height: 700px;
     border: 1px solid lightgray;
@@ -19,4 +19,21 @@
     border: none;
     border-radius: 25px;
     box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.yellow {
+    background-color: rgb(251, 188, 0);
+    color: white;
+}
+.yellow > a {
+    color: white;
+}
+
+.white {
+    background-color: white;
+    color: black;
+}
+.white > a {
+    color: black;
 }
