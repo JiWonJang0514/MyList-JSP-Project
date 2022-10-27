@@ -27,8 +27,8 @@
                 <label for="userPwd">비밀번호</label><br>
                 <input type="text" name="userPwd" id="userPwd"><br>
 
-                <label for="userBirth">생일</label><br>
-                <input type="date" name="userBirth" id="userBirth"><br>
+                <label for="userBirth">생일을 선택해주세요</label><br>
+                <input type="date" name="userBirth" id="userBirth">
             </div>
             <div>
                 <button type="submit" class="btn yellow">완료</button>
