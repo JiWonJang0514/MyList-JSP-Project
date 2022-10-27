@@ -1,0 +1,49 @@
+#start-background {
+    background-image: url("../images/start_backgorund.png");
+    background-size: cover;
+    position: relative;
+}
+
+#title {
+    margin: 190px auto 0 auto;
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+}
+
+#title h2 {
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+#title h1 {
+    font-size: 55px;
+    font-weight: lighter;
+}
+
+#register {
+    position: absolute;
+    left: calc(50% - (184px/2));
+    bottom: 50px;
+}
+
+#register .btn {
+    font-size: 16px;
+    display: block;
+}
+
+#register .btn:nth-child(1) {
+    background-color: rgb(251, 188, 0);
+}
+
+#register .btn:nth-child(1) > a {
+    color: white;
+}
+
+#register .btn:nth-child(2) {
+    padding: 14px 58px;
+    background-color: rgb(255, 255, 255);
+}
+
+#register .btn:nth-child(2) > a {
+    color: black;
+}
