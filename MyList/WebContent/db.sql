@@ -1,3 +1,9 @@
+--  비주얼스튜디오 터미널
+--  git config --global user.name "user name"
+--  git config --global user.email "user@inflearn.com"
+
+
+
 --회원(계정) 테이블: 아이디, 비밀번호, 생일, 계정공개여부
 drop table members;
 create table members(
