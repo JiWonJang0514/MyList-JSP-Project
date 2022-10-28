@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* 시작 화면 */
 #start-background {
     background-image: url("/images/start_backgorund.png");
     background-size: cover;
@@ -33,6 +34,9 @@
     display: block;
 }
 
-#register .btn:nth-child(2) {
+#register > a:nth-child(2) > .btn {
     padding: 14px 58px;
 }
+
+
+/*  */

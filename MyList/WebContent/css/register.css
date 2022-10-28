@@ -13,6 +13,11 @@ form {
     width: 250px;
 }
 
+form > div:nth-child(2) {
+    margin-top: 50px;
+    text-align: center;
+}
+
 label {
     color: #555;
     font-size: 14px;
@@ -24,11 +29,6 @@ input, select {
     width: 100%;
     border: 1px solid lightgray;
     border-radius: 4px;
-}
-
-form > div:nth-child(2) {
-    margin-top: 50px;
-    text-align: center;
 }
 
 button {

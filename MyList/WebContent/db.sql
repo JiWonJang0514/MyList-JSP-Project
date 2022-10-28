@@ -16,9 +16,16 @@ create table members(
 
 insert into members values('jiwon_.14', '1234', '2005-11-14', 'F');
 --insert into members values('jiwon_.14', '1234', '전갈자리', 'F');
-
 select * from members;
 
---투두리스트 테이블: idx, 할일, 작성자아이디, 기한
 --좌우명 테이블: idx, 좌우명, 작성자아이디
+drop table mottos;
+create table mottos(
+	motto varchar2(100),
+	userId varchar2(20)
+);
+
+
+
+--투두리스트 테이블: idx, 할일, 작성자아이디, 기한
 --별자리 테이블: 해당하는 생일, 별자리

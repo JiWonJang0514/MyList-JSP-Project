@@ -28,6 +28,7 @@
     background-color: rgb(251, 188, 0);
     color: white;
 }
+
 .yellow > a {
     color: white;
 }
@@ -36,6 +37,8 @@
     background-color: white;
     color: black;
 }
+
 .white > a {
     color: black;
 }
+
