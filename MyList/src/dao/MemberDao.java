@@ -36,6 +36,34 @@ public class MemberDao {
 		return result;
 	}
 	
+//	멤버 인서트
+	public int insertMember(String id, String pwd, String birth, String isPublic) {
+		int n = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "insert into members values(?, ?, ?, ?);";
+		
+		conn = JDBCUtil.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pwd);
+			pstmt.setString(2, birth);
+			pstmt.setString(2, isPublic);
+			
+			n = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			JDBCUtil.close(conn, pstmt);
+		}
+		
+		return n;
+	}
+	
 //	---------------------------------------------------------------
 	
 	//	멤버 셀렉트
@@ -64,31 +92,6 @@ public class MemberDao {
 		}
 		
 		return list;
-	}
-	
-	//	멤버 인서트
-	public int insertMember(String userId, String userPwd) {
-		int n = 0;
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		String sql = "insert into member values(?,?)";
-		
-		conn = JDBCUtil.getConnection();
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
-			pstmt.setString(2, userPwd);
-			n = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			
-		} finally {
-			JDBCUtil.close(conn, pstmt);
-		}
-		
-		return n;
 	}
 
 	//	멤버 업데이트
