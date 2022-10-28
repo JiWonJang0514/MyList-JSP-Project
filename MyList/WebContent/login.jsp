@@ -19,7 +19,7 @@
     <div class="wrppaer">
         <h1>로그인</h1>
 
-        <form action="">
+        <form action="/login" method="post">
             <div>
                 <label for="userId">아이디</label><br>
                 <input type="text" name="userId" id="userId"><br>
