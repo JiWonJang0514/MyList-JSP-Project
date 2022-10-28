@@ -36,9 +36,7 @@ public class JoinServlet extends HttpServlet {
 		birth = request.getParameter("userBirth");
 		isPublic = request.getParameter("isPublic");
 		
-		out.println(birth);
-		
-//		n = dao.insertMember(id, pwd, birth, isPublic);
+		n = dao.insertMember(id, pwd, birth, isPublic);
 		
 		if (n > 0) 
 			response.sendRedirect("/index.jsp");

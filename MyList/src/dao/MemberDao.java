@@ -42,15 +42,15 @@ public class MemberDao {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into members values(?, ?, ?, ?);";
+		String sql = "insert into members values(?, ?, ?, ?)";
 		
 		conn = JDBCUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pwd);
-			pstmt.setString(2, birth);
-			pstmt.setString(2, isPublic);
+			pstmt.setString(3, birth);
+			pstmt.setString(4, isPublic);
 			
 			n = pstmt.executeUpdate();
 			
@@ -63,6 +63,18 @@ public class MemberDao {
 		
 		return n;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 //	---------------------------------------------------------------
 	
