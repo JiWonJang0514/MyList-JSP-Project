@@ -98,15 +98,16 @@ nav li a:hover {
 }
 
 .container {
-    margin: 20px 0;
+    margin: 22px 0;
     padding: 0 20px;
     width: 100%;
 }
 
 h3 {
     font-family: 'Jua', 'sans-serif';
-    font-size: 28px;
+    font-size: 24px;
     font-weight: lighter;
+    
 }
 
 #add {
@@ -120,8 +121,11 @@ h3 {
 
 .container ul {
     padding: 10px;
-    height: 225px;
     border: 1px solid lightgray;
+}
+
+.todo-list {
+    height: 230px;
 }
 
 .todo-list li {
@@ -142,6 +146,10 @@ h3 {
 .todo-list li span {
     padding: 0 8px;
     color: #bbb;
+}
+
+.others-list {
+    height: 225px;
 }
 
 .others-list li {
