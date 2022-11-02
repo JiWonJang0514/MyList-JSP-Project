@@ -58,6 +58,9 @@
 	        <div class="container">
 	            <h3>투두리스트<a id="add" href="">+</a></h3>
 	            <ul class="todo-list">
+	        <%
+	        	
+	        %>
 	                <li>
 	                    <div>한국사 인강 듣기</div>
 	                    <div>
