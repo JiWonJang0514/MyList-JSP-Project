@@ -46,7 +46,7 @@
 	
 	            <div id="profile">
 	                <div class="user-img">
-	                    <img src="" alt="별자리">
+	                    <img src="/images/게.png" alt="별자리 프로필 사진">
 	                </div>
 	                <div class="user-info">
 	                    <span class="motto">그만 둘 이유보다 해야 할!</span>
@@ -115,7 +115,7 @@
 	                <li>
 	                    <a href="">
 	                        <div class="user-img">
-	                            <img src="" alt="">
+	                            <img src="/images/물병.png" alt="별자리 프로필 사진">
 	                        </div>
 	                        <div class="user-info">
 	                            <span>lovely_eune</span>
@@ -126,7 +126,7 @@
 	                <li>
 	                    <a href="">
 	                        <div class="user-img">
-	                            <img src="" alt="">
+	                            <img src="/images/물병.png" alt="별자리 프로필 사진">
 	                        </div>
 	                        <div class="user-info">
 	                            <span>lovely_eune</span>
@@ -137,7 +137,7 @@
 	                <li>
 	                    <a href="">
 	                        <div class="user-img">
-	                            <img src="" alt="">
+	                            <img src="/images/물병.png" alt="별자리 프로필 사진">
 	                        </div>
 	                        <div class="user-info">
 	                            <span>lovely_eune</span>
@@ -148,7 +148,7 @@
 	                <li>
 	                    <a href="">
 	                        <div class="user-img">
-	                            <img src="" alt="">
+	                            <img src="/images/물병.png" alt="별자리 프로필 사진">
 	                        </div>
 	                        <div class="user-info">
 	                            <span>lovely_eune</span>
