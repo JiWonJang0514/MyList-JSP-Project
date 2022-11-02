@@ -39,4 +39,143 @@
 }
 
 
-/*  */
+/* 로그인 후 화면 */
+header {
+    padding: 10px 20px;
+    width: 100%;
+}
+
+nav {
+    /* margin-bottom: 10px; */
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    font-size: 13px;
+}
+
+nav li a {
+    color: #bbb;
+}
+nav li a:hover {
+    text-decoration: underline;
+}
+
+#profile {
+    width: 100%;
+    display: flex;
+}
+
+#profile .user-img {
+    width: 75px;
+    height: 75px;
+    background-color: gray;
+}
+
+#profile .user-info {
+    padding-left: 20px;
+}
+
+#profile .user-info span {
+    display: block;
+}
+
+#profile .motto {
+    font-family: 'Jua', sans-serif;
+    font-size: 28px;
+    font-weight: lighter;
+    overflow: hidden;
+}
+
+#profile .user-id {
+}
+
+.container {
+    margin: 22px 0;
+    padding: 0 20px;
+    width: 100%;
+}
+
+h3 {
+    font-family: 'Jua', 'sans-serif';
+    font-size: 24px;
+    font-weight: lighter;
+    
+}
+
+#add {
+    margin-left: 1rem;
+    color: rgb(251, 188, 0);
+}
+
+#add:hover {
+    color: rgb(216, 162, 0);
+}
+
+.container ul {
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+
+.todo-list {
+    height: 230px;
+}
+
+.todo-list li {
+    display: flex;
+    justify-content: space-between;
+    line-height: 25px;
+}
+
+.todo-list li a {
+    font-size: 13px;
+    color: #bbb;
+}
+
+.todo-list li a:hover {
+    text-decoration: underline;
+}
+
+.todo-list li span {
+    padding: 0 8px;
+    color: #bbb;
+}
+
+.others-list {
+    height: 225px;
+}
+
+.others-list li {
+    padding: 5px 0;
+}
+
+.others-list li > a {
+    display: flex;
+}
+
+.others-list .user-img {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+}
+
+.others-list .user-info span {
+    display: block;
+    color: black;
+}
+
+.others-list .user-info span:nth-child(1) {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.others-list .user-info span:nth-child(2) {
+    font-size: 14px;
+}

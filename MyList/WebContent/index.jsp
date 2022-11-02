@@ -37,6 +37,127 @@
 %>
 	    <!-- 로그인 후 메인 화면 -->
 	    <div class="wrppaer">
+	    	<header>
+	            <nav>
+	                <ul>
+	                    <li><a href="#">로그아웃</a></li>
+	                </ul>
+	            </nav>
+	
+	            <div id="profile">
+	                <div class="user-img">
+	                    <img src="" alt="별자리">
+	                </div>
+	                <div class="user-info">
+	                    <span class="motto">그만 둘 이유보다 해야 할!</span>
+	                    <span class="user-id">y_melody_03</span>
+	                </div>
+	            </div>
+	        </header>
+	        
+	        <div class="container">
+	            <h3>투두리스트<a id="add" href="">+</a></h3>
+	            <ul class="todo-list">
+	                <li>
+	                    <div>한국사 인강 듣기</div>
+	                    <div>
+	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div>한국사 인강 듣기</div>
+	                    <div>
+	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div>한국사 인강 듣기</div>
+	                    <div>
+	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div>한국사 인강 듣기</div>
+	                    <div>
+	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div>한국사 인강 듣기</div>
+	                    <div>
+	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div>한국사 인강 듣기</div>
+	                    <div>
+	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div>한국사 인강 듣기</div>
+	                    <div>
+	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div>한국사 인강 듣기</div>
+	                    <div>
+	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
+	                    </div>
+	                </li>
+	            </ul>
+	        </div>
+	        
+	        <div class="container">
+	            <h3>다른 계정</h3>
+	            <ul class="others-list">
+	                <li>
+	                    <a href="">
+	                        <div class="user-img">
+	                            <img src="" alt="">
+	                        </div>
+	                        <div class="user-info">
+	                            <span>lovely_eune</span>
+	                            <span>행복한 일은 매일 있어</span>
+	                        </div>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="">
+	                        <div class="user-img">
+	                            <img src="" alt="">
+	                        </div>
+	                        <div class="user-info">
+	                            <span>lovely_eune</span>
+	                            <span>행복한 일은 매일 있어</span>
+	                        </div>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="">
+	                        <div class="user-img">
+	                            <img src="" alt="">
+	                        </div>
+	                        <div class="user-info">
+	                            <span>lovely_eune</span>
+	                            <span>행복한 일은 매일 있어</span>
+	                        </div>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="">
+	                        <div class="user-img">
+	                            <img src="" alt="">
+	                        </div>
+	                        <div class="user-info">
+	                            <span>lovely_eune</span>
+	                            <span>행복한 일은 매일 있어</span>
+	                        </div>
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
 	    </div>
 <%
 	}
