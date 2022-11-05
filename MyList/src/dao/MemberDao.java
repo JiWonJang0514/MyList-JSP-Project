@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import common.JDBCUtil;
+import vo.MemberVO;
 
 public class MemberDao {
 	// 로그인 입력정보 확인
@@ -64,7 +65,73 @@ public class MemberDao {
 		return n;
 	}
 	
+//	멤버 한 개 셀렉트
+	public MemberVO getMember(String id) {
+		MemberVO vo = new MemberVO();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from members where userId=?";
+		
+		conn = JDBCUtil.getConnection();
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				vo.setUserId(rs.getString("userId"));
+				vo.setUserPwd(rs.getString("userPwd"));
+				vo.setUserBirth(rs.getString("userBirth"));
+				vo.setIsPublic(rs.getString("isPublic"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			JDBCUtil.close(conn, pstmt, rs);
+		}
+		
+		return vo;
+	}
 	
+//	멤버 전체 셀렉트
+	public ArrayList<MemberVO> getMemberList() {
+		ArrayList<MemberVO> list = new ArrayList<>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from members";
+		
+		conn = JDBCUtil.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MemberVO vo = new MemberVO();
+				
+				vo.setUserId(rs.getString("userId"));
+				vo.setUserPwd(rs.getString("userPwd"));
+				vo.setUserBirth(rs.getString("userBirth"));
+				vo.setIsPublic(rs.getString("isPublic"));
+				
+				list.add(vo);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			JDBCUtil.close(conn, pstmt, rs);
+		}
+		
+		return list;
+	}
 	
 	
 	
@@ -78,33 +145,6 @@ public class MemberDao {
 	
 //	---------------------------------------------------------------
 	
-	//	멤버 셀렉트
-	public ArrayList<String> getMemberList() {
-		ArrayList<String> list = new ArrayList<>();
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "select userid from member";
-		
-		conn = JDBCUtil.getConnection();
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				list.add(rs.getString("userid"));
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			
-		} finally {
-			JDBCUtil.close(conn, pstmt, rs);
-		}
-		
-		return list;
-	}
 
 	//	멤버 업데이트
 	public int updateMember(String userId, String userPwd) {

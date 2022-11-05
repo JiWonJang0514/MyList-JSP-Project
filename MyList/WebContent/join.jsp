@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
-    <div class="wrppaer">
+    <div class="wrapper">
         <h1>회원가입</h1>
 
         <form action="/join" method="post">

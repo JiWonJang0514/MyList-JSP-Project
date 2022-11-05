@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -13,22 +13,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <!-- 스타일 링크 -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
     <div class="wrapper">
-        <h1>로그인</h1>
-
-        <form action="/login" method="post">
+        <form action="" method="">
             <div>
-                <label for="userId">아이디</label><br>
-                <input type="text" name="userId" id="userId"><br>
+                <label for="todo">할 일</label><br>
+                <input type="text" name="todo" id="todo"><br>
 
-                <label for="userPwd">비밀번호</label><br>
-                <input type="text" name="userPwd" id="userPwd"><br>
+                <label for="deadline">기한</label><br>
+                <input type="date" name="deadline" id="deadline"><br>
             </div>
             <div>
-                <button type="submit" class="btn yellow">완료</button>
+                <button type="submit" class="btn yellow">추가</button>
             </div>
         </form>
     </div>

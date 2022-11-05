@@ -28,7 +28,7 @@ create table mottos(
 );
 
 
-
+----todo: idx시퀀스 생성
 --투두리스트 테이블: idx, 할일, 작성자아이디, 기한
 drop table todoList;
 create table todoList(

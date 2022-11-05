@@ -27,7 +27,7 @@
 	if(vo == null) { // 시작화면
 %>
 
-	    <div id="start-background" class="wrppaer">
+	    <div id="start-background" class="wrapper">
 	        <div id="title">
 	            <h2>나를 더 빛내줄 투두리스트</h2>
 	            <h1>마이 리스트</h1>
@@ -42,7 +42,7 @@
 	} else { // 로그인 후 메인화면
 %>
 
-	    <div class="wrppaer">
+	    <div class="wrapper">
 	    	<header>
 	    	
 	    	
@@ -73,7 +73,7 @@
 	        </header>
 	        
 	        <div class="container">
-	            <h3>투두리스트<a id="add" href="">+</a></h3>
+	            <h3>투두리스트<a id="add" href="/insertTodo.jsp">+</a></h3>
 	            <ul class="todo-list">
 	        <%
 				TodoDao dao = new TodoDao();
@@ -83,7 +83,7 @@
 	                <li>
 	                    <div><%= todoList.get(i).getTodo() %><%= todoList.get(i).getDeadline() %></div>
 	                    <div>
-	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
+	                        <a href="/updateTodo.jsp?idx=1">수정</a><span>|</span><a href="/delete?idx=1">삭제</a>
 	                    </div>
 	                </li>
             <%
@@ -93,6 +93,9 @@
 	        </div>
 	        
 	        <div class="container">
+        <%
+        	if(vo.getIsPublic().equals("T")) { // 공개
+        %>
 	            <h3>다른 계정</h3>
 	            <ul class="others-list">
 	                <li>
@@ -140,6 +143,16 @@
 	                    </a>
 	                </li>
 	            </ul>
+        <%
+        	} else { // 비공개
+        %>
+        	<h3>비공개 계정</h3>
+	            <ul class="others-list">
+	            	다른 사용자와 공유하지 않는 나만의 공간입니다
+	           	</ul>
+        <%
+	        }
+        %>
 	        </div>
 	    </div>
 	    

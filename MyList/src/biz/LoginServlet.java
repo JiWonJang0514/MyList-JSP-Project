@@ -40,9 +40,12 @@ public class LoginServlet extends HttpServlet {
 		
 		if (result) {
 			// 세션에 속성 값으로 설정할 정보
-			MemberVO vo = new MemberVO();
-			vo.setUserId(id);
-			vo.setUserPwd(pwd);
+			
+			MemberVO vo = dao.getMember(id);
+			
+//			MemberVO vo = new MemberVO();
+//			vo.setUserId(id);
+//			vo.setUserPwd(pwd);
 			
 			// ...유저 birth public 조회해서 채우기
 			
