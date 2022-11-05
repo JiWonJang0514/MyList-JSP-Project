@@ -23,9 +23,10 @@
 <body>
 <%
 	MemberVO vo = (MemberVO)session.getAttribute("loginOK");
-	if(vo == null) {
+
+	if(vo == null) { // 시작화면
 %>
-	    <!-- 시작 화면 -->
+
 	    <div id="start-background" class="wrppaer">
 	        <div id="title">
 	            <h2>나를 더 빛내줄 투두리스트</h2>
@@ -36,10 +37,11 @@
 	            <a href="/login.jsp"><button class="btn white">로그인</button></a>
 	        </div>
 	    </div>
+	    
 <%
-	} else {
+	} else { // 로그인 후 메인화면
 %>
-	    <!-- 로그인 후 메인 화면 -->
+
 	    <div class="wrppaer">
 	    	<header>
 	    	
@@ -55,7 +57,7 @@
 	    	
 	            <nav>
 	                <ul>
-	                    <li><a href="#">로그아웃</a></li>
+	                    <li><a href="/logout">로그아웃</a></li>
 	                </ul>
 	            </nav>
 	
@@ -140,6 +142,7 @@
 	            </ul>
 	        </div>
 	    </div>
+	    
 <%
 	}
 %>

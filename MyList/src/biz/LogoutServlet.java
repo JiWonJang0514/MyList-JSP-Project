@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.MemberDao;
+import vo.MemberVO;
 
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
@@ -24,11 +25,11 @@ public class LogoutServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("loginOK");
+		MemberVO vo = (MemberVO)session.getAttribute("loginOK");
 		
-		if (id != null) {
+		if (vo.getUserId() != null) {
 			session.removeAttribute("loginOK");
-			response.sendRedirect("/login/login.jsp");
+			response.sendRedirect("/index.jsp");
 		}
 	}
 

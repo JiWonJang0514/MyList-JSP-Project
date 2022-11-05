@@ -44,6 +44,8 @@ public class LoginServlet extends HttpServlet {
 			vo.setUserId(id);
 			vo.setUserPwd(pwd);
 			
+			// ...유저 birth public 조회해서 채우기
+			
 			HttpSession session = request.getSession();
 			session.setAttribute("loginOK", vo);
 			response.sendRedirect("/index.jsp");
