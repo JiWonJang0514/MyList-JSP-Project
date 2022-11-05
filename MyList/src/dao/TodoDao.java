@@ -8,7 +8,7 @@ import vo.TodoVO;
 
 public class TodoDao {
 	
-	// 로그인한 사용자의 핳 일 목록 가져오기
+	// 로그인한 사용자의 할 일 목록 가져오기
 	public ArrayList<TodoVO> getTodoList(String userId) {
 		ArrayList<TodoVO> list = new ArrayList<>();
 		
@@ -42,5 +42,32 @@ public class TodoDao {
 		}
 		
 		return list;
+	}
+	
+	// 할 일 추가하기
+	public int insertTodo(String todo, String deadline, String userid) {
+		int n = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "insert into todoList values(?, ?, ?)";
+		
+		conn = JDBCUtil.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, todo);
+			pstmt.setString(2, deadline);
+			pstmt.setString(3, userid);
+			
+			n = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			JDBCUtil.close(conn, pstmt);
+		}
+		
+		return n;
 	}
 }
