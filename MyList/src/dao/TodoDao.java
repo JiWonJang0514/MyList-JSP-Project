@@ -4,11 +4,13 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import common.JDBCUtil;
+import vo.TodoVO;
 
 public class TodoDao {
+	
 	// 로그인한 사용자의 핳 일 목록 가져오기
-	public ArrayList<String> getTodoList(String userId) {
-		ArrayList<String> list = new ArrayList<>();
+	public ArrayList<TodoVO> getTodoList(String userId) {
+		ArrayList<TodoVO> list = new ArrayList<>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -22,7 +24,14 @@ public class TodoDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				list.add(rs.getString("todo")); //todo: 할일을 오브젝트 단위로 묶어서 가져와야 되느데..
+				// 할 일 객체 생성
+				TodoVO vo = new TodoVO();
+				
+				vo.setTodo(rs.getString("todo"));
+				vo.setUserId(rs.getString("userId"));
+				vo.setDeadline(rs.getString("deadline"));
+				
+				list.add(vo);
 			}
 			
 		} catch (SQLException e) {

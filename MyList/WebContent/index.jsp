@@ -1,4 +1,8 @@
 <%@page import="vo.MemberVO"%>
+<%@page import="dao.TodoDao"%>
+<%@page import="vo.TodoVO"%>
+<%@page import="java.util.ArrayList"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,6 +42,17 @@
 	    <!-- 로그인 후 메인 화면 -->
 	    <div class="wrppaer">
 	    	<header>
+	    	
+	    	
+	    	
+	    	<%= vo.getUserId() %>
+	    	<%= vo.getUserPwd() %>
+	    	<%= vo.getUserBirth() %>
+	    	<%= vo.getIsPublic() %>
+	    	
+	    	
+	    	
+	    	
 	            <nav>
 	                <ul>
 	                    <li><a href="#">로그아웃</a></li>
@@ -50,7 +65,7 @@
 	                </div>
 	                <div class="user-info">
 	                    <span class="motto">그만 둘 이유보다 해야 할!</span>
-	                    <span class="user-id">y_melody_03</span>
+	                    <span class="user-id"><%= vo.getUserId() %></span>
 	                </div>
 	            </div>
 	        </header>
@@ -59,56 +74,19 @@
 	            <h3>투두리스트<a id="add" href="">+</a></h3>
 	            <ul class="todo-list">
 	        <%
-	        	
+				TodoDao dao = new TodoDao();
+	        	ArrayList<TodoVO> todoList = dao.getTodoList(vo.getUserId());
+	 			for(int i=0; i < todoList.size(); i++) {
 	        %>
 	                <li>
-	                    <div>한국사 인강 듣기</div>
+	                    <div><%= todoList.get(i).getTodo() %><%= todoList.get(i).getDeadline() %></div>
 	                    <div>
 	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
 	                    </div>
 	                </li>
-	                <li>
-	                    <div>한국사 인강 듣기</div>
-	                    <div>
-	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
-	                    </div>
-	                </li>
-	                <li>
-	                    <div>한국사 인강 듣기</div>
-	                    <div>
-	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
-	                    </div>
-	                </li>
-	                <li>
-	                    <div>한국사 인강 듣기</div>
-	                    <div>
-	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
-	                    </div>
-	                </li>
-	                <li>
-	                    <div>한국사 인강 듣기</div>
-	                    <div>
-	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
-	                    </div>
-	                </li>
-	                <li>
-	                    <div>한국사 인강 듣기</div>
-	                    <div>
-	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
-	                    </div>
-	                </li>
-	                <li>
-	                    <div>한국사 인강 듣기</div>
-	                    <div>
-	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
-	                    </div>
-	                </li>
-	                <li>
-	                    <div>한국사 인강 듣기</div>
-	                    <div>
-	                        <a href="">수정</a><span>|</span><a href="">삭제</a>
-	                    </div>
-	                </li>
+            <%
+	 			}
+            %>
 	            </ul>
 	        </div>
 	        
