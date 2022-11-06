@@ -98,14 +98,14 @@ public class MemberDao {
 		return vo;
 	}
 	
-//	멤버 전체 셀렉트
-	public ArrayList<MemberVO> getMemberList() {
+//	공개 멤버 전체 셀렉트
+	public ArrayList<MemberVO> getPublicMemberList() {
 		ArrayList<MemberVO> list = new ArrayList<>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from members";
+		String sql = "select * from members where isPublic='T'";
 		
 		conn = JDBCUtil.getConnection();
 		try {

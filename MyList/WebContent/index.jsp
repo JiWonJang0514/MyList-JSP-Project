@@ -1,3 +1,4 @@
+<%@page import="dao.MemberDao"%>
 <%@page import="vo.MemberVO"%>
 <%@page import="dao.TodoDao"%>
 <%@page import="vo.TodoVO"%>
@@ -63,7 +64,7 @@
 	
 	            <div id="profile">
 	                <div class="user-img">
-	                    <img src="/images/게.png" alt="별자리 프로필 사진">
+	                    <img src="/images/<%= vo.getUserBirth() %>.png" alt="별자리 프로필 사진">
 	                </div>
 	                <div class="user-info">
 	                    <span class="motto">그만 둘 이유보다 해야 할!</span>
@@ -76,8 +77,8 @@
 	            <h3>투두리스트<a id="add" href="/insertTodo.jsp">+</a></h3>
 	            <ul class="todo-list">
 	        <%
-				TodoDao dao = new TodoDao();
-	        	ArrayList<TodoVO> todoList = dao.getTodoList(vo.getUserId());
+				TodoDao todoDao = new TodoDao();
+	        	ArrayList<TodoVO> todoList = todoDao.getTodoList(vo.getUserId());
 	 			for(int i=0; i < todoList.size(); i++) {
 	        %>
 	                <li>
@@ -98,50 +99,25 @@
         %>
 	            <h3>다른 계정</h3>
 	            <ul class="others-list">
+         	<%
+         		MemberDao memberDao = new MemberDao();
+         		ArrayList<MemberVO> memberList = memberDao.getPublicMemberList();
+ 				for(int i=0; i < memberList.size(); i++) {
+         	%>
 	                <li>
 	                    <a href="">
 	                        <div class="user-img">
-	                            <img src="/images/물병.png" alt="별자리 프로필 사진">
+	                            <img src="/images/<%= memberList.get(i).getUserBirth() %>.png" alt="별자리 프로필 사진">
 	                        </div>
 	                        <div class="user-info">
-	                            <span>lovely_eune</span>
+	                            <span><%= memberList.get(i).getUserId() %></span>
 	                            <span>행복한 일은 매일 있어</span>
 	                        </div>
 	                    </a>
 	                </li>
-	                <li>
-	                    <a href="">
-	                        <div class="user-img">
-	                            <img src="/images/물병.png" alt="별자리 프로필 사진">
-	                        </div>
-	                        <div class="user-info">
-	                            <span>lovely_eune</span>
-	                            <span>행복한 일은 매일 있어</span>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li>
-	                    <a href="">
-	                        <div class="user-img">
-	                            <img src="/images/물병.png" alt="별자리 프로필 사진">
-	                        </div>
-	                        <div class="user-info">
-	                            <span>lovely_eune</span>
-	                            <span>행복한 일은 매일 있어</span>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li>
-	                    <a href="">
-	                        <div class="user-img">
-	                            <img src="/images/물병.png" alt="별자리 프로필 사진">
-	                        </div>
-	                        <div class="user-info">
-	                            <span>lovely_eune</span>
-	                            <span>행복한 일은 매일 있어</span>
-	                        </div>
-	                    </a>
-	                </li>
+            <%
+ 				}
+            %>
 	            </ul>
         <%
         	} else { // 비공개

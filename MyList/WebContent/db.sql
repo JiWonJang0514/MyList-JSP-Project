@@ -9,13 +9,11 @@ drop table members;
 create table members(
 	userId varchar2(20) primary key,
 	userPwd varchar2(20),
-	userBirth date,
---	starType varchar2(50),
+	userBirth varchar2(50),
 	isPublic varchar2(5)
 );
 
-insert into members values('jiwon_.14', '1234', '2005-11-14', 'F');
---insert into members values('jiwon_.14', '1234', '전갈자리', 'F');
+insert into members values('jiwon_.14', '1234', '전갈', 'F');
 select * from members;
 
 
@@ -28,8 +26,6 @@ create table mottos(
 );
 
 
-----todo: idx시퀀스 생성
-create sequence seq_todo_idx;
 
 --투두리스트 테이블: idx, 할일, 작성자아이디, 기한
 drop table todoList;
@@ -39,6 +35,9 @@ create table todoList(
 	userId varchar2(20),
 	deadline date
 );
+
+----idx시퀀스 생성
+create sequence seq_todo_idx;
 
 insert into todoList values(seq_todo_idx.nextval, '응실 작업형 수행 공부하기', 'jiwon_.14', '2022-11-08');
 select * from todoList;
