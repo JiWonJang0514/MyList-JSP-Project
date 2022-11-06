@@ -43,6 +43,10 @@ create table todoList(
 insert into todoList values(seq_todo_idx.nextval, '응실 작업형 수행 공부하기', 'jiwon_.14', '2022-11-08');
 select * from todoList;
 
+select * from todoList where idx=?;
+delete from todoList where idx=?;
+update todoList set todo=?, deadline=? where idx=?;
+
 
 
 --별자리 테이블: 해당하는 생일, 별자리

@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.TodoDao;
 
-@WebServlet("/insertTodo")
-public class InsertTodoServlet extends HttpServlet {
+@WebServlet("/updateTodo")
+public class UpdateTodoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public InsertTodoServlet() {
+    public UpdateTodoServlet() {
         super();
     }
     
@@ -24,20 +24,20 @@ public class InsertTodoServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		String todo, deadline, userid;
+		String idx, todo, deadline;
 		int n;
 		
+		idx = request.getParameter("idx");
 		todo = request.getParameter("todo");
 		deadline = request.getParameter("deadline");
-		userid = request.getParameter("userid");
 		
 		TodoDao dao = new TodoDao();
-		n = dao.insertTodo(todo, deadline, userid);
+		n = dao.updateTodo(idx, todo, deadline);
 		
 		if(n > 0)
 			response.sendRedirect("/index.jsp");
 		else
-			out.println("<script> alert('할 일 추가에 실패했습니다'); history.back(); <script>");
+			out.println("<script> alert('할 일 수정에 실패했습니다'); history.back(); <script>");
 	}
 
 }

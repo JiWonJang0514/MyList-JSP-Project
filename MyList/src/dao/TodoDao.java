@@ -45,6 +45,38 @@ public class TodoDao {
 		return list;
 	}
 	
+	// 할 일 한 개 가져오기
+	public TodoVO getTodo(String idx) {
+		TodoVO vo = new TodoVO();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from todoList where idx=?";
+		
+		conn = JDBCUtil.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, idx);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				vo.setIdx(rs.getInt("idx"));
+				vo.setTodo(rs.getString("todo"));
+				vo.setUserId(rs.getString("userId"));
+				vo.setDeadline(rs.getString("deadline"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			JDBCUtil.close(conn, pstmt, rs);
+		}
+		
+		return vo;
+	}
+	
 	// 할 일 추가하기
 	public int insertTodo(String todo, String deadline, String userid) {
 		int n = 0;
@@ -84,6 +116,33 @@ public class TodoDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, idx);
+			
+			n = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			JDBCUtil.close(conn, pstmt);
+		}
+		
+		return n;
+	}
+	
+	// 할 일 수정하기
+	public int updateTodo(String idx, String todo, String deadline) {
+		int n = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "update todoList set todo=?, deadline=? where idx=?";
+		
+		conn = JDBCUtil.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, todo);
+			pstmt.setString(2, deadline);
+			pstmt.setString(3, idx);
 			
 			n = pstmt.executeUpdate();
 			
