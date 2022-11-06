@@ -83,7 +83,7 @@
 	                <li>
 	                    <div><%= todoList.get(i).getTodo() %><%= todoList.get(i).getDeadline() %></div>
 	                    <div>
-	                        <a href="/updateTodo.jsp?idx=1">수정</a><span>|</span><a href="/delete?idx=1">삭제</a>
+	                        <a href="/updateTodo.jsp?idx=<%= todoList.get(i).getIdx() %>">수정</a><span>|</span><a href="/delete?idx=<%= todoList.get(i).getIdx() %>">삭제</a>
 	                    </div>
 	                </li>
             <%

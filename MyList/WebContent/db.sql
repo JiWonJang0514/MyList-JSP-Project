@@ -29,15 +29,18 @@ create table mottos(
 
 
 ----todo: idx시퀀스 생성
+create sequence seq_todo_idx;
+
 --투두리스트 테이블: idx, 할일, 작성자아이디, 기한
 drop table todoList;
 create table todoList(
+	idx number primary key,
 	todo varchar2(100),
 	userId varchar2(20),
 	deadline date
 );
 
-insert into todoList values('응실 작업형 수행 공부하기', 'jiwon_.14', '2022-11-08');
+insert into todoList values(seq_todo_idx.nextval, '응실 작업형 수행 공부하기', 'jiwon_.14', '2022-11-08');
 select * from todoList;
 
 

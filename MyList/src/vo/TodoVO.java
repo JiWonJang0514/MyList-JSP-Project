@@ -1,12 +1,21 @@
 package vo;
 
 public class TodoVO {
+	private int idx;
 	private String todo;
 	private String userId;
 	private String deadline;
 	
 	public TodoVO() {
 		super();
+	}
+	
+	public int getIdx() {
+		return idx;
+	}
+
+	public void setIdx(int idx) {
+		this.idx = idx;
 	}
 
 	public String getTodo() {

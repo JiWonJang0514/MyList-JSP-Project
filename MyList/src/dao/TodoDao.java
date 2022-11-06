@@ -26,7 +26,8 @@ public class TodoDao {
 			while(rs.next()) {
 				// 할 일 객체 생성
 				TodoVO vo = new TodoVO();
-				
+
+				vo.setIdx(rs.getInt("idx"));
 				vo.setTodo(rs.getString("todo"));
 				vo.setUserId(rs.getString("userId"));
 				vo.setDeadline(rs.getString("deadline"));
@@ -50,7 +51,7 @@ public class TodoDao {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into todoList values(?, ?, ?)";
+		String sql = "insert into todoList values(seq_todo_idx.nextval, ?, ?, ?)";
 		
 		conn = JDBCUtil.getConnection();
 		try {
@@ -58,6 +59,31 @@ public class TodoDao {
 			pstmt.setString(1, todo);
 			pstmt.setString(2, userid);
 			pstmt.setString(3, deadline);
+			
+			n = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			JDBCUtil.close(conn, pstmt);
+		}
+		
+		return n;
+	}
+	
+	// 할 일 삭제
+	public int deleteTodo(String idx) {
+		int n = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete from todoList where idx=?";
+		
+		conn = JDBCUtil.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, idx);
 			
 			n = pstmt.executeUpdate();
 			
