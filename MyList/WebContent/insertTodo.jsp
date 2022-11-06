@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/form.css">
 </head>
     
-        <form action="/insertTodo" method="post">
+        <form action="/insertTodo" method="post" accept-charset="UTF-8">
             <div>
                 <label for="todo">할 일</label><br>
                 <input type="text" name="todo" id="todo"><br>

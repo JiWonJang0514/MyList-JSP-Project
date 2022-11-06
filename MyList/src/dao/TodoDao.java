@@ -56,8 +56,8 @@ public class TodoDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, todo);
-			pstmt.setString(2, deadline);
-			pstmt.setString(3, userid);
+			pstmt.setString(2, userid);
+			pstmt.setString(3, deadline);
 			
 			n = pstmt.executeUpdate();
 			

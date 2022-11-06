@@ -38,6 +38,7 @@ create table todoList(
 );
 
 insert into todoList values('응실 작업형 수행 공부하기', 'jiwon_.14', '2022-11-08');
+select * from todoList;
 
 
 
