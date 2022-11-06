@@ -9,7 +9,6 @@
     <%
     	String idx = request.getParameter("idx");
     
-    	// dao 셀렉트...
     	TodoDao dao = new TodoDao();
     	TodoVO todo = dao.getTodo(idx);
     %>
