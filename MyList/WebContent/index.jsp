@@ -77,6 +77,7 @@
 	            <h3>투두리스트<a id="add" href="/insertTodo.jsp">+</a></h3>
 	            <ul class="todo-list">
 	        <%
+		        // todo: 기한 남은 리스트, 어제까지인 지난 리스트 따로 조회 메소드 부르기!!
 				TodoDao todoDao = new TodoDao();
 	        	ArrayList<TodoVO> todoList = todoDao.getTodoList(vo.getUserId());
 	 			for(int i=0; i < todoList.size(); i++) {

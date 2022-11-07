@@ -1,10 +1,11 @@
---  비주얼스튜디오 터미널
---  git config --global user.name "user name"
---  git config --global user.email "user@inflearn.com"
+--비주얼스튜디오 터미널
+--git config --global user.name "user name"
+--git config --global user.email "user@inflearn.com"
+--남은 구현: 할일 기한 구분표시, 좌우명, 다른 사용자 계정 방문
 
 
 
---회원(계정) 테이블: 아이디, 비밀번호, 생일, 계정공개여부
+--회원(계정) 테이블: 아이디, 비밀번호, 별자리, 계정공개여부
 drop table members;
 create table members(
 	userId varchar2(20) primary key,
@@ -42,10 +43,11 @@ create sequence seq_todo_idx;
 insert into todoList values(seq_todo_idx.nextval, '응실 작업형 수행 공부하기', 'jiwon_.14', '2022-11-08');
 select * from todoList;
 
+--todo: 시스데이트가 안걸림???
+select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline 
+	from todoList 
+	where userId='aa__1234' and deadline >= sysdate;
+
 select * from todoList where idx=?;
 delete from todoList where idx=?;
 update todoList set todo=?, deadline=? where idx=?;
-
-
-
---별자리 테이블: 해당하는 생일, 별자리
