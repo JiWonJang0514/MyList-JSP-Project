@@ -43,10 +43,15 @@ create sequence seq_todo_idx;
 insert into todoList values(seq_todo_idx.nextval, '응실 작업형 수행 공부하기', 'jiwon_.14', '2022-11-08');
 select * from todoList;
 
---todo: 시스데이트가 안걸림???
+--기한 지난 할일
 select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline 
-	from todoList 
-	where userId='aa__1234' and deadline >= sysdate;
+	from todoList
+	where userId='aa__1234' and deadline < sysdate;
+	
+--기한 남은 할일
+select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline 
+	from todoList
+	where userId='jiwon_.14' and deadline = sysdate;
 
 select * from todoList where idx=?;
 delete from todoList where idx=?;

@@ -153,6 +153,11 @@ h3 {
     color: #bbb;
 }
 
+.over {
+	text-decoration: line-through;
+	color: gray;
+}
+
 .others-list {
     height: 225px;
 }

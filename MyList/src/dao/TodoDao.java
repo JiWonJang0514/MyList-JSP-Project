@@ -52,7 +52,7 @@ public class TodoDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline from todoList where userId=?";
+		String sql = "select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline from todoList where userId=? and deadline < sysdate";
 		
 		conn = JDBCUtil.getConnection();
 		try {

@@ -76,9 +76,22 @@
 	        <div class="container">
 	            <h3>투두리스트<a id="add" href="/insertTodo.jsp">+</a></h3>
 	            <ul class="todo-list">
-	        <%
-		        // todo: 기한 남은 리스트, 어제까지인 지난 리스트 따로 조회 메소드 부르기!!
-				TodoDao todoDao = new TodoDao();
+           <%
+		        // 지난 리스트
+		        TodoDao todoDao = new TodoDao();
+	        	ArrayList<TodoVO> overTodoList = todoDao.getOverTodoList(vo.getUserId());
+	 			for(int i=0; i < overTodoList.size(); i++) {
+	        %>
+	                <li>
+	                    <div class="over"><%= overTodoList.get(i).getTodo() %><%= overTodoList.get(i).getDeadline() %></div>
+	                    <div>
+	                        <a href="/updateTodo.jsp?idx=<%= overTodoList.get(i).getIdx() %>">수정</a><span>|</span><a href="/delete?idx=<%= overTodoList.get(i).getIdx() %>">삭제</a>
+	                    </div>
+	                </li>
+            <%
+	 			}
+	 			
+		        // 기한 남은 리스트
 	        	ArrayList<TodoVO> todoList = todoDao.getTodoList(vo.getUserId());
 	 			for(int i=0; i < todoList.size(); i++) {
 	        %>
