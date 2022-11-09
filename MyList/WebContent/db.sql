@@ -19,15 +19,6 @@ select * from members;
 
 
 
---좌우명 테이블: idx, 좌우명, 작성자아이디
-drop table mottos;
-create table mottos(
-	motto varchar2(100),
-	userId varchar2(20)
-);
-
-
-
 --투두리스트 테이블: idx, 할일, 작성자아이디, 기한
 drop table todoList;
 create table todoList(
@@ -56,3 +47,12 @@ select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline
 select * from todoList where idx=?;
 delete from todoList where idx=?;
 update todoList set todo=?, deadline=? where idx=?;
+
+
+
+--좌우명 테이블: idx, 좌우명, 작성자아이디
+drop table mottos;
+create table mottos(
+	motto varchar2(100),
+	userId varchar2(20)
+);
