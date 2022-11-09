@@ -46,12 +46,12 @@ select * from todoList;
 --기한 지난 할일
 select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline 
 	from todoList
-	where userId='aa__1234' and deadline < sysdate;
+	where userId='jiwon_.14' and TO_CHAR(deadline,'YYYY-MM-DD') < TO_CHAR(sysdate,'YYYY-MM-DD');
 	
 --기한 남은 할일
 select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline 
 	from todoList
-	where userId='jiwon_.14' and deadline = sysdate;
+	where userId='jiwon_.14' and TO_CHAR(deadline,'YYYY-MM-DD') >= TO_CHAR(sysdate,'YYYY-MM-DD');
 
 select * from todoList where idx=?;
 delete from todoList where idx=?;
