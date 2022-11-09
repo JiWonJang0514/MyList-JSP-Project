@@ -15,7 +15,7 @@ public class TodoDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline from todoList where userId=? and deadline >= sysdate";
+		String sql = "select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline from todoList where userId=? and TO_CHAR(deadline,'YYYY-MM-DD') >= TO_CHAR(sysdate,'YYYY-MM-DD')";
 		
 		conn = JDBCUtil.getConnection();
 		try {
@@ -52,7 +52,7 @@ public class TodoDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline from todoList where userId=? and deadline < sysdate";
+		String sql = "select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline from todoList where userId=? and TO_CHAR(deadline,'YYYY-MM-DD') < TO_CHAR(sysdate,'YYYY-MM-DD')";
 		
 		conn = JDBCUtil.getConnection();
 		try {
