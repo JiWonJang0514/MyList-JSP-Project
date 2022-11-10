@@ -17,6 +17,9 @@ create table members(
 insert into members values('jiwon_.14', '1234', '전갈', 'F');
 select * from members;
 
+select * from members where isPublic='T';
+select * from members where isPublic='T' and userId !='aa__1234';
+
 
 
 --투두리스트 테이블: idx, 할일, 작성자아이디, 기한

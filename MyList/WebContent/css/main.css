@@ -190,3 +190,9 @@ h3 {
 .others-list .user-info span:nth-child(2) {
     font-size: 14px;
 }
+
+/* 내 마이리스트 돌아가기 링크 */
+#back {
+	width: 100%;
+	text-align: center;
+}

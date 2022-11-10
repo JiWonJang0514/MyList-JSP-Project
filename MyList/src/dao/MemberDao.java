@@ -99,17 +99,18 @@ public class MemberDao {
 	}
 	
 //	공개 멤버 전체 셀렉트
-	public ArrayList<MemberVO> getPublicMemberList() {
+	public ArrayList<MemberVO> getOthersList(String id) {
 		ArrayList<MemberVO> list = new ArrayList<>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from members where isPublic='T'";
+		String sql = "select * from members where isPublic='T' and userId !=?";
 		
 		conn = JDBCUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

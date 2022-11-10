@@ -115,11 +115,11 @@
 	            <ul class="others-list">
          	<%
          		MemberDao memberDao = new MemberDao();
-         		ArrayList<MemberVO> memberList = memberDao.getPublicMemberList();
+         		ArrayList<MemberVO> memberList = memberDao.getOthersList(vo.getUserId());
  				for(int i=0; i < memberList.size(); i++) {
          	%>
 	                <li>
-	                    <a href="">
+	                    <a href="/myList.jsp?id=<%= memberList.get(i).getUserId() %>">
 	                        <div class="user-img">
 	                            <img src="/images/<%= memberList.get(i).getUserBirth() %>.png" alt="별자리 프로필 사진">
 	                        </div>
