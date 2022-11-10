@@ -1,0 +1,249 @@
+#start-background {
+    background-image: url("../images/start_backgorund.png");
+    background-size: cover;
+    position: relative;
+}
+
+#title {
+    margin: 190px auto 0 auto;
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+}
+
+#title h2 {
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+#title h1 {
+    font-size: 55px;
+    font-weight: lighter;
+}
+
+#register {
+    position: absolute;
+    left: calc(50% - (184px/2));
+    bottom: 65px;
+}
+
+#register .btn {
+    font-size: 16px;
+    display: block;
+}
+
+#register .btn:nth-child(2) {
+    padding: 14px 58px;
+}
+
+
+
+/* ---------------------------------- */
+
+
+
+header {
+    padding: 2rem;
+    width: 100%;
+}
+
+nav {
+    /* margin-bottom: 10px; */
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    font-size: 13px;
+}
+
+nav li a {
+    color: #bbb;
+}
+nav li a:hover {
+    text-decoration: underline;
+}
+
+#profile {
+    width: 100%;
+    display: flex;
+}
+
+#profile .user-img {
+    width: 90px;
+    height: 90px;
+    background-color: gray;
+}
+
+.user-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#profile .user-info {
+    padding-left: 20px;
+}
+
+#profile .user-info span {
+    display: block;
+}
+
+#profile .motto {
+    margin-top: 10px;
+}
+
+#profile .user-id {
+    font-family: 'Jua', sans-serif;
+    font-size: 26px;
+    font-weight: lighter;
+}
+
+.container {
+    margin-top: 30px;
+    padding: 2rem;
+    width: 100%;
+}
+
+.container h3 {
+    font-family: 'Jua', sans-serif;
+    font-size: 32px;
+    font-weight: lighter;
+    margin-bottom: 1rem;
+}
+
+.container ul {
+    display: grid;
+    gap: 1rem;
+}
+
+.container li {
+    padding: 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    /* box-shadow: 0px 2px 5px rgba(0,0,0,0.1); */
+    position: relative;
+}
+
+#todo-list ul {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#todo-list li > div:nth-child(1) {
+    margin-bottom: 2.2rem;
+}
+
+#todo-list li > div:nth-child(2) {
+    font-size: 13px;
+    color: #bbb;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+#todo-list li a {
+    padding: 0 5px;
+    color: #bbb;
+}
+
+#todo-list li a:hover {
+    text-decoration: underline;
+}
+
+#others-list ul {
+    grid-template-columns: 1fr 1fr;
+}
+
+#others-list li > a {
+    display: flex;
+}
+
+#others-list .user-img {
+    width: 60px;
+    height: 60px;
+}
+
+
+
+
+/* h3 {
+    font-family: 'Jua', 'sans-serif';
+    font-size: 24px;
+    font-weight: lighter;
+    
+}
+
+#add {
+    margin-left: 1rem;
+    color: rgb(251, 188, 0);
+}
+
+#add:hover {
+    color: rgb(216, 162, 0);
+}
+
+.container ul {
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+
+.todo-list {
+    height: 230px;
+}
+
+.todo-list li {
+    display: flex;
+    justify-content: space-between;
+    line-height: 25px;
+}
+
+.todo-list li a {
+    font-size: 13px;
+    color: #bbb;
+}
+
+.todo-list li a:hover {
+    text-decoration: underline;
+}
+
+.todo-list li span {
+    padding: 0 8px;
+    color: #bbb;
+}
+
+.others-list {
+    height: 225px;
+}
+
+.others-list li {
+    padding: 5px 0;
+}
+
+.others-list li > a {
+    display: flex;
+}
+
+.others-list .user-img {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+}
+
+.others-list .user-info span {
+    display: block;
+    color: black;
+}
+
+.others-list .user-info span:nth-child(1) {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.others-list .user-info span:nth-child(2) {
+    font-size: 14px;
+} */
