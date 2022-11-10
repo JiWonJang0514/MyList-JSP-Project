@@ -11,40 +11,41 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.MemberDao;
+import dao.TodoDao;
+import vo.MemberVO;
 
-@WebServlet("/join")
-public class JoinServlet extends HttpServlet {
+@WebServlet("/updateMotto")
+public class UpdateMottoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	public JoinServlet() {
-		super();
-	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
-
+       
+    public UpdateMottoServlet() {
+        super();
+    }
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); // 받아온 값 한글깨짐 방지 처리
-		
 		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter(); 
-				
-		String id, pwd, birth, motto, isPublic;
-		MemberDao dao = new MemberDao();
-		int n = 0;
+		PrintWriter out = response.getWriter();
 		
-		id = request.getParameter("userId");
-		pwd = request.getParameter("userPwd");
-		birth = request.getParameter("userBirth");
+		String motto, id;
+		int n;
+		
 		motto = request.getParameter("userMotto");
-		isPublic = request.getParameter("isPublic");
+		id = request.getParameter("userId");
 		
-		n = dao.insertMember(id, pwd, birth, motto, isPublic);
+		MemberDao dao = new MemberDao();
+		n = dao.updateMotto(motto, id);
 		
-		if (n > 0) 
+		if(n > 0) {
+			HttpSession session = request.getSession();
+			MemberVO vo = (MemberVO)session.getAttribute("loginOK");
+			
+			vo = dao.getMember(id);
+			session.setAttribute("loginOK", vo);
+			
 			response.sendRedirect("/index.jsp");
-		else
-			out.print("<script> history.back(); </script>");
+		} else
+			out.println("<script> alert('나만의 명언 수정에 실패했습니다'); history.back(); <script>");
 	}
 
 }

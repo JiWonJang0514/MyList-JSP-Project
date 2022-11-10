@@ -46,6 +46,8 @@
                 	<option value="물고기">02월 19일 ~ 03월 20일 ˚✧₊  물고기자리</option>
                 </select>
                 
+                <label for="userMotto">나만의 명언을 적어주세요</label><br>
+                <input type="text" name="userMotto" id="userMotto"><br>
                 
                 &nbsp;<input type="radio" name="isPublic" id="T" value="T" checked><label for="T">공개 계정</label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

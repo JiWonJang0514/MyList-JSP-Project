@@ -22,17 +22,6 @@
 %>
 	    <div class="wrapper">
 	    	<header>
-	    	
-	    	
-	    	
-	    	<%= vo.getUserId() %>
-	    	<%= vo.getUserPwd() %>
-	    	<%= vo.getUserBirth() %>
-	    	<%= vo.getIsPublic() %>
-	    	
-	    	
-	    	
-	    	
 	            <nav>
 	                <ul>
 	                    <li><a href="/logout">로그아웃</a></li>
@@ -41,11 +30,12 @@
 	
 	            <div id="profile">
 	                <div class="user-img">
-	                    <img src="/images/게.png" alt="별자리 프로필 사진">
+	                    <img src="/images/<%= vo.getUserBirth() %>.png" alt="별자리 프로필 사진">
 	                </div>
 	                <div class="user-info">
-	                    <span class="motto">그만 둘 이유보다 해야 할!</span>
+	                    <span class="motto"><%= vo.getMotto() %></span>
 	                    <span class="user-id"><%= vo.getUserId() %></span>
+	                    <a href="/mottoUpdate.jsp?id=<%= vo.getUserId() %>">수정</a>
 	                </div>
 	            </div>
 	        </header>

@@ -40,7 +40,7 @@
                     <img src="/images/<%= vo.getUserBirth() %>.png" alt="별자리 프로필 사진">
                 </div>
                 <div class="user-info">
-                    <span class="motto">그만 둘 이유보다 해야 할!</span>
+                    <span class="motto"><%= vo.getMotto() %></span>
                     <span class="user-id"><%= vo.getUserId() %></span>
                 </div>
             </div>

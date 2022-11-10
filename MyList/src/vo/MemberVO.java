@@ -4,6 +4,7 @@ public class MemberVO {
 	private String userId;
 	private String userPwd;
 	private String userBirth;
+	private String motto;
 	private String isPublic;
 	
 	public MemberVO() {
@@ -32,6 +33,14 @@ public class MemberVO {
 
 	public void setUserBirth(String userBirth) {
 		this.userBirth = userBirth;
+	}
+
+	public String getMotto() {
+		return motto;
+	}
+
+	public void setMotto(String motto) {
+		this.motto = motto;
 	}
 
 	public String getIsPublic() {

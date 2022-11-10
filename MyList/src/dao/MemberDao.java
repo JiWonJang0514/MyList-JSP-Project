@@ -38,12 +38,12 @@ public class MemberDao {
 	}
 	
 //	멤버 인서트
-	public int insertMember(String id, String pwd, String birth, String isPublic) {
+	public int insertMember(String id, String pwd, String birth, String motto, String isPublic) {
 		int n = 0;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into members values(?, ?, ?, ?)";
+		String sql = "insert into members values(?, ?, ?, ?, ?)";
 		
 		conn = JDBCUtil.getConnection();
 		try {
@@ -51,7 +51,8 @@ public class MemberDao {
 			pstmt.setString(1, id);
 			pstmt.setString(2, pwd);
 			pstmt.setString(3, birth);
-			pstmt.setString(4, isPublic);
+			pstmt.setString(4, motto);
+			pstmt.setString(5, isPublic);
 			
 			n = pstmt.executeUpdate();
 			
@@ -85,6 +86,7 @@ public class MemberDao {
 				vo.setUserId(rs.getString("userId"));
 				vo.setUserPwd(rs.getString("userPwd"));
 				vo.setUserBirth(rs.getString("userBirth"));
+				vo.setMotto(rs.getString("userMotto"));
 				vo.setIsPublic(rs.getString("isPublic"));
 			}
 			
@@ -119,6 +121,7 @@ public class MemberDao {
 				vo.setUserId(rs.getString("userId"));
 				vo.setUserPwd(rs.getString("userPwd"));
 				vo.setUserBirth(rs.getString("userBirth"));
+				vo.setMotto(rs.getString("userMotto"));
 				vo.setIsPublic(rs.getString("isPublic"));
 				
 				list.add(vo);
@@ -134,8 +137,30 @@ public class MemberDao {
 		return list;
 	}
 	
-	
-	
+	//	멤버 좌우명 업데이트
+	public int updateMotto(String motto, String id) {
+		int n = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "update members set userMotto=? where userId=?";
+		
+		conn = JDBCUtil.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, motto);
+			pstmt.setString(2, id);
+			n = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			JDBCUtil.close(conn, pstmt);
+		}
+		
+		return n;
+	}
 	
 	
 	

@@ -1,7 +1,7 @@
 --비주얼스튜디오 터미널
 --git config --global user.name "user name"
 --git config --global user.email "user@inflearn.com"
---남은 구현: 할일 기한 구분표시, 좌우명, 다른 사용자 계정 방문
+--남은 구현: 레이아웃 최종 수정, 코드 검토
 
 
 
@@ -11,10 +11,19 @@ create table members(
 	userId varchar2(20) primary key,
 	userPwd varchar2(20),
 	userBirth varchar2(50),
+	userMotto varchar2(100),
 	isPublic varchar2(5)
 );
 
-insert into members values('jiwon_.14', '1234', '전갈', 'F');
+insert into members values('jiwon_.14', '1234', '전갈', '작은 행복을 아는 사람', 'F');
+insert into members values('mymelody', '1234', '게', '자세히 보아야 예쁘다', 'F');
+insert into members values('aa_daily', '1234', '양', '티끌 모아 태산', 'T');
+insert into members values('dear_yoon_02', '1234', '사수', '행복한 일은 매일 있어', 'T');
+insert into members values('nana_0513', '1234', '사자', '성공의 반대는 도전하지 않는 것', 'T');
+insert into members values('sieun_k', '1234', '사자', '기회는 준비된 자에게 찾아온다', 'T');
+insert into members values('day0ung_15', '1234', '물병', '수고했어, 오늘도', 'T');
+insert into members values('meee._.22', '1234', '처녀', '어제의 나를 뛰어넘어라', 'T');
+
 select * from members;
 
 select * from members where isPublic='T';
