@@ -9,26 +9,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
     <!-- 스타일 링크 -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
-    <div class="wrppaer">
+    <div class="wrapper">
         <h1>로그인</h1>
 
-        <form action="">
+        <form action="/updateTodo" method="post" accept-charset="UTF-8">
             <div>
-                <label for="userId">아이디</label><br>
-                <input type="text" name="userId" id="userId"><br>
+                <label for="todo">할 일</label><br>
+                <input type="text" name="todo" id="todo" value="<%= todo.getTodo() %>"><br>
 
-                <label for="userPwd">비밀번호</label><br>
-                <input type="text" name="userPwd" id="userPwd"><br>
+                <label for="deadline">기한</label><br>
+                <input type="date" name="deadline" id="deadline" value="<%= todo.getDeadline() %>"><br>
+                
+                <input type="hidden" name="idx" value="<%= idx %>">
             </div>
             <div>
-                <button type="submit" class="btn yellow">완료</button>
+                <button type="submit" class="btn yellow">수정</button>
             </div>
         </form>
+
+        <footer>
+            <small>
+                My List, your own shining todo list.<br>
+                YYDH Software development 20604 Jiwon Jang
+            </small>
+        </footer>
     </div>
 </body>
 </html>

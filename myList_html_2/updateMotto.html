@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 폰트 링크 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+    <!-- 스타일 링크 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#">로그아웃</a></li>
+                </ul>
+            </nav>
+
+            <div id="profile">
+                <div class="user-img">
+                    <img src="images/물고기.png" alt="별자리">
+                </div>
+                <div class="user-info">
+                    <span class="user-id"><i class="fa fa-lock"></i><i class="fa fa-unlock-alt"></i>aa_daily</span>
+                    <span class="motto">행복한 일은 매일 있어 :)</span>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <h1>나만의 명언 수정</h1>
+
+            <form action="/updateMotto" method="post">
+                <div>
+                     <label for="userMotto">명언</label><br>
+                    <input type="text" name="userMotto" id="userMotto">
+                    
+                    <input type="hidden" name="userId" value="<%= vo.getUserId() %>">
+                </div>
+                <div>
+                    <button class="btn yellow">수정</button>
+                </div>
+            </form>
+        </div>
+
+        <footer>
+            <small>
+                My List, your own shining todo list.<br>
+                YYDH Software development 20604 Jiwon Jang
+            </small>
+        </footer>
+    </div>
+</body>
+</html>

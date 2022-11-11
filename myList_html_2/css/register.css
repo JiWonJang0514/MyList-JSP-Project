@@ -1,14 +1,18 @@
+.wrapper {
+    height: 100vh;
+}
+
 h1 {
-    margin-top: 100px;
+    padding-top: 150px;
     text-align: center;
     font-family: 'Jua', sans-serif;
-    font-size: 40px;
+    font-size: 42px;
     font-weight: lighter;
 }
 
 form {
     margin: 50px auto 0 auto;
-    width: 250px;
+    width: 300px;
 }
 
 label {
@@ -16,12 +20,26 @@ label {
     font-size: 14px;
 }
 
-input {
+input[type='text'], input[type='password'], select {
     margin: 3px 0 10px 0;
     padding: 6px;
     width: 100%;
     border: 1px solid lightgray;
     border-radius: 4px;
+}
+
+#userMotto {
+    margin-bottom: 35px;
+}
+
+#T {
+    margin-left: 2rem;
+    margin-right: 10px;
+}
+
+#F {
+    margin-left: 42px;
+    margin-right: 10px;
 }
 
 form > div:nth-child(2) {

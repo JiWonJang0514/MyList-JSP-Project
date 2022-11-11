@@ -1,6 +1,18 @@
+.wrapper {
+    height: 100vh;
+}
+
+h1 {
+    padding-top: 130px;
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+    font-size: 28px;
+    font-weight: lighter;
+}
+
 form {
     margin: 50px auto 0 auto;
-    width: 250px;
+    width: 300px;
 }
 
 input {

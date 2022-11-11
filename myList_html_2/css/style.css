@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+body {
+    width: 100%;
+    height: 100%;
+}
+
 .wrapper {
     margin: 0 auto;
     width: 750px;
@@ -39,9 +44,96 @@
     color: black;
 }
 
+
+/* Header start */
+header {
+    padding: 1rem 2rem 2rem 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    margin-left: 2rem;
+    font-size: 13px;
+}
+
+nav li a {
+    color: #bbb;
+}
+nav li a:hover {
+    text-decoration: underline;
+}
+
+#profile {
+    width: 100%;
+    display: flex;
+}
+
+#profile .user-img {
+    width: 90px;
+    height: 90px;
+    background-color: gray;
+}
+
+.user-img {
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.user-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#profile .user-info {
+    padding-left: 20px;
+}
+
+#profile .user-info span {
+    display: block;
+}
+
+#profile .motto {
+    margin-top: 10px;
+}
+
+#profile .user-id {
+    margin-top: 8px;
+    font-family: 'Jua', sans-serif;
+    font-size: 28px;
+    font-weight: lighter;
+}
+
+#profile .user-id i {
+    margin-right: 0.8rem;
+    font-size: 22px;
+}
+/* Header end */
+
+
+/* Footer start */
 footer {
     margin-top: 70px;
-    padding: 2rem 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 107px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
+/* Footer end */
