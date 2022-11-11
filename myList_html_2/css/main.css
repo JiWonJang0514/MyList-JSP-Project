@@ -1,4 +1,5 @@
-#start-background {
+/* Before login start */
+#before-login {
     height: 100vh;
     background-image: url("../images/start_backgorund.png");
     background-position: center;
@@ -38,9 +39,7 @@
 #register .btn:nth-child(2) {
     padding: 14px 58px;
 }
-
-
-/* ---------------------------------- */
+/* Before login end */
 
 
 /* content start */
