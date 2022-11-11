@@ -37,7 +37,7 @@
 	        <header>
 	            <nav>
 	                <ul>
-	                    <li><a href="#">로그아웃</a></li>
+	                    <li><a href="/logout">로그아웃</a></li>
 	                </ul>
 	            </nav>
 	
