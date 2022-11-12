@@ -29,18 +29,18 @@
 
 #register {
     position: absolute;
-    left: calc(50% - (214px/2));
+    left: calc(50% - (196px/2));
     bottom: 180px;
 }
 
 #register .btn {
-    padding: 14px 75px;
+    padding: 14px 66px;
     font-size: 16px;
     display: block;
 }
 
 #register #login-btn {
-    padding: 14px 83px;
+    padding: 14px 74px;
 }
 /* Before login end */
 
