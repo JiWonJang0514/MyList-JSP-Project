@@ -22,8 +22,8 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href="/index.jsp">내 계정 돌아가기</a></li>
                     <li><a href="/logout">로그아웃</a></li>
+                    <li><a href="/index.jsp">내 계정 돌아가기</a></li>
                 </ul>
             </nav>
 

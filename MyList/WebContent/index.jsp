@@ -24,8 +24,8 @@
 	            <h1>마이 리스트</h1>
 	        </div>
 	        <div id="register">
-	            <button class="btn yellow"><a href="/join.jsp">회원가입</a></button>
-	            <button class="btn white"><a href="/login.jsp">로그인</a></button>
+	            <a href="/join.jsp"><button id="join-btn" class="btn yellow">회원가입</button></a>
+	            <a href="/login.jsp"><button id="login-btn" class="btn white">로그인</button></a>
 	        </div>
 	    </div>
 	    
@@ -37,6 +37,7 @@
 	        <header>
 	            <nav>
 	                <ul>
+	                	<li><a href="/mottoUpdate.jsp?id=<%= vo.getUserId() %>">명언 수정</a></li>
 	                    <li><a href="/logout">로그아웃</a></li>
 	                </ul>
 	            </nav>
@@ -54,10 +55,7 @@
 	                    	<% } %>
 	                   		<%= vo.getUserId() %>
 	                    </span>
-	                    <span class="motto">
-	                    	<%= vo.getMotto() %>
-	                    	<a href="/mottoUpdate.jsp?id=<%= vo.getUserId() %>">모토 수정</a>
-	                    </span>
+	                    <span class="motto"><%= vo.getMotto() %></span>
 	                </div>
 	            </div>
 	        </header>
@@ -65,29 +63,44 @@
 	        <div id="todo-list" class="container">
 	            <h3># 투두 리스트<a id="add" href="/insertTodo.jsp">+</a></h3>
 	            <ul>
-		            <%
-				        // 기한 지난 할 일
-				        TodoDao todoDao = new TodoDao();
-			        	ArrayList<TodoVO> overTodoList = todoDao.getOverTodoList(vo.getUserId());
-			 			for(int i=0; i < overTodoList.size(); i++) {
-		        	%>
-		                <li>
-		                    <div class="over"><%= overTodoList.get(i).getTodo() %><%= overTodoList.get(i).getDeadline() %></div>
-		                    <div>
-		                        <a href="/updateTodo.jsp?idx=<%= overTodoList.get(i).getIdx() %>">수정</a><span>|</span><a href="/delete?idx=<%= overTodoList.get(i).getIdx() %>">삭제</a>
-		                    </div>
-		                </li>
 	                <%
-			 			}
-			 			
+	                	TodoDao todoDao = new TodoDao();
+	                
 				        // 기한 남은 할 일
 			        	ArrayList<TodoVO> todoList = todoDao.getTodoList(vo.getUserId());
 			 			for(int i=0; i < todoList.size(); i++) {
 			        %>
 		                <li>
-		                    <div><%= todoList.get(i).getTodo() %><%= todoList.get(i).getDeadline() %></div>
+		                    <div><%= todoList.get(i).getTodo() %></div>
 		                    <div>
-		                        <a href="/updateTodo.jsp?idx=<%= todoList.get(i).getIdx() %>">수정</a><span>|</span><a href="/delete?idx=<%= todoList.get(i).getIdx() %>">삭제</a>
+	                    		<div>
+	                    			<%= todoList.get(i).getDeadline() %>&nbsp;까지
+	                    		</div>
+		                    	<div>
+			                        <a href="/updateTodo.jsp?idx=<%= todoList.get(i).getIdx() %>">수정</a>
+			                        <span>|</span>
+			                        <a href="/delete?idx=<%= todoList.get(i).getIdx() %>">삭제</a>
+			                    </div>
+		                    </div>
+		                </li>
+		            <%
+			 			}
+			 			
+				        // 기한 지난 할 일
+			        	ArrayList<TodoVO> overTodoList = todoDao.getOverTodoList(vo.getUserId());
+			 			for(int i=0; i < overTodoList.size(); i++) {
+		        	%>
+		                <li>
+		                    <div class="over"><%= overTodoList.get(i).getTodo() %></div>
+		                    <div>
+	                    		<div>
+	                    			<%= overTodoList.get(i).getDeadline() %>&nbsp;까지
+	                    		</div>
+		                    	<div>
+			                        <a href="/updateTodo.jsp?idx=<%= overTodoList.get(i).getIdx() %>">수정</a>
+			                        <span>|</span>
+			                        <a href="/delete?idx=<%= overTodoList.get(i).getIdx() %>">삭제</a>
+			                    </div>
 		                    </div>
 		                </li>
 	                <%
@@ -96,36 +109,37 @@
 	            </ul>
 	        </div>
 	            
-	        <div id="others-list" class="container">
-	            <h3># 다른 사용자</h3>
-	            <ul>
-		            <%
-			        	if(vo.getIsPublic().equals("T")) { // 공개 계정
-			        		MemberDao memberDao = new MemberDao();
-			         		ArrayList<MemberVO> memberList = memberDao.getOthersList(vo.getUserId());
-			 				for(int i=0; i < memberList.size(); i++) {
-			        %>
-		                <li>
-		                    <a href="/myList.jsp?id=<%= memberList.get(i).getUserId() %>">
-		                        <div class="user-img">
-		                            <img src="images/<%= memberList.get(i).getUserBirth() %>.png" alt="별자리">
-		                        </div>
-		                        <div class="user-info">
-		                            <span><%= memberList.get(i).getUserId() %></span>
-		                            <span><small><%= memberList.get(i).getMotto() %></small></span>
-		                        </div>
-		                    </a>
-		                </li>
-	                <%
-			        		}
-			        	} else { // 비공계 개정
-			        %>
-			            	<small>비공개 계정입니다</small>
-			        <%
-			        	}
-			        %>
-	            </ul>
-	        </div>
+	        <%
+	        	if(vo.getIsPublic().equals("T")) { // 공개 계정
+	        %>
+			        <div id="others-list" class="container">
+			            <h3># 다른 사용자</h3>
+			            <ul>
+				    		<%        
+				        		MemberDao memberDao = new MemberDao();
+				         		ArrayList<MemberVO> memberList = memberDao.getOthersList(vo.getUserId());
+				 				for(int i=0; i < memberList.size(); i++) {
+					        %>
+					                <li>
+					                    <a href="/myList.jsp?id=<%= memberList.get(i).getUserId() %>">
+					                        <div class="user-img">
+					                            <img src="images/<%= memberList.get(i).getUserBirth() %>.png" alt="별자리">
+					                        </div>
+					                        <div class="user-info">
+					                            <span><%= memberList.get(i).getUserId() %></span>
+					                            <span><small><%= memberList.get(i).getMotto() %></small></span>
+					                        </div>
+					                    </a>
+					                </li>
+			                <%
+				        		}
+					 		%>
+			            </ul>
+			        </div>
+	        <%
+	        	}
+    		%>
+	        
 	
 	        <footer>
 	            <small>

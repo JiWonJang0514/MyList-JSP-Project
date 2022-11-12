@@ -16,6 +16,7 @@
 		<header>
 	        <nav>
 	            <ul>
+	            	<li><a href="/mottoUpdate.jsp?id=<%= vo.getUserId() %>">명언 수정</a></li>
 	                <li><a href="/logout">로그아웃</a></li>
 	            </ul>
 	        </nav>
@@ -33,10 +34,7 @@
 	                	<% } %>
 	               		<%= vo.getUserId() %>
 	                </span>
-	                <span class="motto">
-	                	<%= vo.getMotto() %>
-	                	<a href="/mottoUpdate.jsp?id=<%= vo.getUserId() %>">모토 수정</a>
-	                </span>
+	                <span class="motto"><%= vo.getMotto() %></span>
 	            </div>
 	        </div>
 	    </header>
