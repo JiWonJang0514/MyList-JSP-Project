@@ -85,7 +85,7 @@ nav li a:hover {
 #profile .user-img {
     width: 90px;
     height: 90px;
-    background-color: gray;
+    background-color: white;
 }
 
 .user-img {
@@ -95,9 +95,10 @@ nav li a:hover {
 }
 
 .user-img > img {
+	padding: 8px;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: fill;
 }
 
 #profile .user-info {
