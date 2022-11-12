@@ -1,7 +1,7 @@
 --비주얼스튜디오 터미널
 --git config --global user.name "user name"
 --git config --global user.email "user@inflearn.com"
---남은 구현: 이미지 자료 수정, 코드 검토
+--남은 구현: 이미지 자료 수정, 코드 검토(주석 작성)
 
 
 
