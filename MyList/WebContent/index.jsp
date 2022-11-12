@@ -85,7 +85,7 @@
 			 			for(int i=0; i < todoList.size(); i++) {
 			        %>
 		                <li>
-		                    <div>한국사 인강 듣기</div>
+		                    <div><%= todoList.get(i).getTodo() %><%= todoList.get(i).getDeadline() %></div>
 		                    <div>
 		                        <a href="/updateTodo.jsp?idx=<%= todoList.get(i).getIdx() %>">수정</a><span>|</span><a href="/delete?idx=<%= todoList.get(i).getIdx() %>">삭제</a>
 		                    </div>

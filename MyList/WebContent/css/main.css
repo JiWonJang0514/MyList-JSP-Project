@@ -113,6 +113,11 @@
     grid-template-columns: 1fr 1fr;
 }
 
+.over {
+	text-decoration: line-through;
+	color: gray;
+}
+
 #others-list li > a {
     display: flex;
     color: #444;
