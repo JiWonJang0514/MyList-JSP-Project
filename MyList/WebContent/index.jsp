@@ -15,7 +15,7 @@
 <%
 	MemberVO vo = (MemberVO)session.getAttribute("loginOK");
 
-	if(vo == null) { // 시작화면
+	if(vo == null) { // 비로그인 상태 시작화면
 %>
 
 	    <div id="before-login" class="wrapper">

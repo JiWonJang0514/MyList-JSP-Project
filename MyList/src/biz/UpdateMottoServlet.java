@@ -30,22 +30,28 @@ public class UpdateMottoServlet extends HttpServlet {
 		String motto, id;
 		int n;
 		
+		// 전달받은 정보 변수 할당
 		motto = request.getParameter("userMotto");
 		id = request.getParameter("userId");
 		
+		// 멤버 dao 객체 생성
 		MemberDao dao = new MemberDao();
+		// 나만의 명언 업데이트 메소드 호출
 		n = dao.updateMotto(motto, id);
 		
 		if(n > 0) {
+			// 성공->세션 정보를 로그인 한 사용자의 새로 바뀐 정보로 재설정하기
+			
 			HttpSession session = request.getSession();
 			MemberVO vo = (MemberVO)session.getAttribute("loginOK");
 			
-			vo = dao.getMember(id);
-			session.setAttribute("loginOK", vo);
+			vo = dao.getMember(id); // 현재 로그인한 사용자 정보 다시 가져오기
+			session.setAttribute("loginOK", vo); // 세션 정보 설정
 			
 			response.sendRedirect("/index.jsp");
+			
 		} else
-			out.println("<script> alert('나만의 명언 수정에 실패했습니다'); history.back(); <script>");
+			out.println("<script> alert('나만의 명언 수정에 실패했습니다'); history.back(); <script>"); // 실패->알림창 띄우고 이전 화면으로 돌아가기
 	}
 
 }

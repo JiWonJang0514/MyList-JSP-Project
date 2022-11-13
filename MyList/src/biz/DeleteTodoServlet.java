@@ -24,15 +24,18 @@ public class DeleteTodoServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		TodoDao dao = new TodoDao();
-		
+		// 전달받은 idx값 변수 할당
 		String idx = request.getParameter("idx");
+		
+		// 투두 dao 객체 생성
+		TodoDao dao = new TodoDao();
+		// 삭제 메소드 호출
 		int n = dao.deleteTodo(idx);
 		
 		if(n > 0)
-			response.sendRedirect("/index.jsp");
+			response.sendRedirect("/index.jsp"); // 성공->인덱스로 이동
 		else
-			out.println("<script> alert('할 일 삭제에 실패했습니다'); history.back(); <script>");
+			out.println("<script> alert('할 일 삭제에 실패했습니다'); history.back(); <script>"); // 실패->이전 화면으로 돌아가기
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

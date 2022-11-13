@@ -15,6 +15,8 @@ public class TodoDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		// 사용자가 작성한 모든 기한이 남은 할 일 셀렉트.
+		// 투두 기한을 오늘 날짜와 둘다 시간 제외한 날짜 형태로 포맷해서 비교. 오늘보다 크다-> 기한이 남은 것
 		String sql = "select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline from todoList where userId=? and TO_CHAR(deadline,'YYYY-MM-DD') >= TO_CHAR(sysdate,'YYYY-MM-DD') order by deadline desc";
 		
 		conn = JDBCUtil.getConnection();
@@ -24,14 +26,16 @@ public class TodoDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				// 할 일 객체 생성
+				// 할 일 vo 객체 생성
 				TodoVO vo = new TodoVO();
 
+				// vo 값 설정
 				vo.setIdx(rs.getInt("idx"));
 				vo.setTodo(rs.getString("todo"));
 				vo.setUserId(rs.getString("userId"));
 				vo.setDeadline(rs.getString("deadline"));
 				
+				// 반환할 리스트에 추가
 				list.add(vo);
 			}
 			
@@ -52,6 +56,8 @@ public class TodoDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		// 사용자가 작성한 모든 기한이 지난 할 일 셀렉트.
+		// 투두 기한을 오늘 날짜와 둘다 시간 제외한 날짜 형태로 포맷해서 비교. 오늘보다 작다-> 기한 이미 지난 것.
 		String sql = "select idx, todo, userId, TO_CHAR(deadline,'YYYY-MM-DD') deadline from todoList where userId=? and TO_CHAR(deadline,'YYYY-MM-DD') < TO_CHAR(sysdate,'YYYY-MM-DD') order by deadline desc";
 		
 		conn = JDBCUtil.getConnection();
@@ -64,11 +70,13 @@ public class TodoDao {
 				// 할 일 객체 생성
 				TodoVO vo = new TodoVO();
 
+				// vo 값 설정
 				vo.setIdx(rs.getInt("idx"));
 				vo.setTodo(rs.getString("todo"));
 				vo.setUserId(rs.getString("userId"));
 				vo.setDeadline(rs.getString("deadline"));
 				
+				// 반환할 리스트에 추가
 				list.add(vo);
 			}
 			
@@ -120,6 +128,7 @@ public class TodoDao {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		// 입력받은 값으로 할 일 인서트. idx는 시퀀스 값으로 자동증가하게.
 		String sql = "insert into todoList values(seq_todo_idx.nextval, ?, ?, ?)";
 		
 		conn = JDBCUtil.getConnection();
@@ -147,6 +156,7 @@ public class TodoDao {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		// 특정 idx 값인 할 일 삭제
 		String sql = "delete from todoList where idx=?";
 		
 		conn = JDBCUtil.getConnection();
@@ -172,6 +182,7 @@ public class TodoDao {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		// 입력받은 값으로 할 일과 기한 수정.
 		String sql = "update todoList set todo=?, deadline=? where idx=?";
 		
 		conn = JDBCUtil.getConnection();

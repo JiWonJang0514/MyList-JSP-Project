@@ -1,10 +1,3 @@
---비주얼스튜디오 터미널
---git config --global user.name "user name"
---git config --global user.email "user@inflearn.com"
---남은 구현: 코드 검토(주석 작성)
-
-
-
 --회원(계정) 테이블: 아이디, 비밀번호, 별자리, 계정공개여부
 drop table members;
 create table members(
@@ -15,6 +8,7 @@ create table members(
 	isPublic varchar2(5)
 );
 
+--더미데이터
 insert into members values('jiwon_.14', '1234', '전갈', '작은 행복을 아는 사람', 'F');
 insert into members values('mymelody', '1234', '게', '자세히 보아야 예쁘다', 'F');
 insert into members values('aa_daily', '1234', '양', '티끌 모아 태산', 'T');
@@ -26,7 +20,6 @@ insert into members values('meee._.22', '1234', '처녀', '어제의 나를 뛰�
 
 select * from members;
 
-select * from members where isPublic='T';
 select * from members where isPublic='T' and userId !='aa__1234';
 
 
@@ -40,7 +33,7 @@ create table todoList(
 	deadline date
 );
 
-----idx시퀀스 생성
+--idx시퀀스 생성
 create sequence seq_todo_idx;
 
 insert into todoList values(seq_todo_idx.nextval, '응실 작업형 수행 공부하기', 'jiwon_.14', '2022-11-08');
@@ -62,11 +55,3 @@ select * from todoList where idx=?;
 delete from todoList where idx=?;
 update todoList set todo=?, deadline=? where idx=?;
 
-
-
---좌우명 테이블: idx, 좌우명, 작성자아이디
-drop table mottos;
-create table mottos(
-	motto varchar2(100),
-	userId varchar2(20)
-);

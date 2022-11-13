@@ -37,7 +37,7 @@ public class MemberDao {
 		return result;
 	}
 	
-//	멤버 인서트
+    // 멤버 인서트
 	public int insertMember(String id, String pwd, String birth, String motto, String isPublic) {
 		int n = 0;
 		
@@ -66,7 +66,7 @@ public class MemberDao {
 		return n;
 	}
 	
-//	멤버 한 개 셀렉트
+	// 멤버 한 개 셀렉트
 	public MemberVO getMember(String id) {
 		MemberVO vo = new MemberVO();
 		
@@ -100,13 +100,14 @@ public class MemberDao {
 		return vo;
 	}
 	
-//	공개 멤버 전체 셀렉트
+	// 공개 멤버 전체 셀렉트
 	public ArrayList<MemberVO> getOthersList(String id) {
 		ArrayList<MemberVO> list = new ArrayList<>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		// 공개 계정인 사용자 중에서 자신(현재 로그인한 사용자)를 제외한 모든 사용자 셀렉트
 		String sql = "select * from members where isPublic='T' and userId !=?";
 		
 		conn = JDBCUtil.getConnection();
@@ -116,14 +117,17 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
+				// 사용자 정보를 담는 vo 객체 생성
 				MemberVO vo = new MemberVO();
 				
+				// vo에 정보 설정
 				vo.setUserId(rs.getString("userId"));
 				vo.setUserPwd(rs.getString("userPwd"));
 				vo.setUserBirth(rs.getString("userBirth"));
 				vo.setMotto(rs.getString("userMotto"));
 				vo.setIsPublic(rs.getString("isPublic"));
 				
+				// 반환할 리스트에 추가
 				list.add(vo);
 			}
 			
@@ -137,7 +141,7 @@ public class MemberDao {
 		return list;
 	}
 	
-	//	멤버 좌우명 업데이트
+	// 멤버 좌우명 업데이트
 	public int updateMotto(String motto, String id) {
 		int n = 0;
 		
@@ -150,65 +154,6 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, motto);
 			pstmt.setString(2, id);
-			n = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			
-		} finally {
-			JDBCUtil.close(conn, pstmt);
-		}
-		
-		return n;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-//	---------------------------------------------------------------
-	
-
-	//	멤버 업데이트
-	public int updateMember(String userId, String userPwd) {
-		int n = 0;
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		String sql = "update member set userpwd=? where userid=?";
-		
-		conn = JDBCUtil.getConnection();
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userPwd);
-			pstmt.setString(2, userId);
-			n = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			
-		} finally {
-			JDBCUtil.close(conn, pstmt);
-		}
-		
-		return n;
-	}
-	
-	// 멤버 딜리트
-	public int deleteMember(String userId) {
-		int n = 0;
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		String sql = "delete from member where userid=?";
-		
-		conn = JDBCUtil.getConnection();
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
 			n = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {

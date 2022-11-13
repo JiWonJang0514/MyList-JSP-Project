@@ -27,17 +27,20 @@ public class InsertTodoServlet extends HttpServlet {
 		String todo, deadline, userid;
 		int n;
 		
+		// 전달받은 파라미터 변수 할당
 		todo = request.getParameter("todo");
 		deadline = request.getParameter("deadline");
 		userid = request.getParameter("userid");
 		
+		// 투두 dao 객체 생성
 		TodoDao dao = new TodoDao();
+		// 인서트 메소드 호출
 		n = dao.insertTodo(todo, deadline, userid);
 		
 		if(n > 0)
-			response.sendRedirect("/index.jsp");
+			response.sendRedirect("/index.jsp"); // 성공->인덱스로 이동
 		else
-			out.println("<script> alert('할 일 추가에 실패했습니다'); history.back(); <script>");
+			out.println("<script> alert('할 일 추가에 실패했습니다'); history.back(); <script>"); // 실패->이전 화면으로 돌아가기
 	}
 
 }
