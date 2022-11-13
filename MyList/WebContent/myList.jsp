@@ -57,11 +57,6 @@
 	                    		<div>
 	                    			<%= todoList.get(i).getDeadline() %>&nbsp;까지
 	                    		</div>
-		                    	<div>
-			                        <a href="/updateTodo.jsp?idx=<%= todoList.get(i).getIdx() %>">수정</a>
-			                        <span>|</span>
-			                        <a href="/delete?idx=<%= todoList.get(i).getIdx() %>">삭제</a>
-			                    </div>
 		                    </div>
 		                </li>
             	<%
@@ -77,11 +72,6 @@
 	                    		<div>
 	                    			<%= overTodoList.get(i).getDeadline() %>&nbsp;까지
 	                    		</div>
-		                    	<div>
-			                        <a href="/updateTodo.jsp?idx=<%= overTodoList.get(i).getIdx() %>">수정</a>
-			                        <span>|</span>
-			                        <a href="/delete?idx=<%= overTodoList.get(i).getIdx() %>">삭제</a>
-			                    </div>
 		                    </div>
 		                </li>
                 <%
