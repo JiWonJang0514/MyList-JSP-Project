@@ -45,27 +45,48 @@
             <h3># 투두 리스트</h3>
             <ul>
             	<%
-			        // 지난 리스트
-			        TodoDao todoDao = new TodoDao();
-		        	ArrayList<TodoVO> overTodoList = todoDao.getOverTodoList(vo.getUserId());
-		 			for(int i=0; i < overTodoList.size(); i++) {
-		        %>
-		                <li>
-		                    <div class="over"><%= overTodoList.get(i).getTodo() %><%= overTodoList.get(i).getDeadline() %></div>
-		                </li>
-                <%
-		 			}
-		 			
-			        // 기한 남은 리스트
+                	TodoDao todoDao = new TodoDao();
+                
+			        // 기한 남은 할 일
 		        	ArrayList<TodoVO> todoList = todoDao.getTodoList(vo.getUserId());
 		 			for(int i=0; i < todoList.size(); i++) {
 		        %>
 		                <li>
-		                    <div><%= todoList.get(i).getTodo() %><%= todoList.get(i).getDeadline() %></div>
+		                    <div><%= todoList.get(i).getTodo() %></div>
+		                    <div>
+	                    		<div>
+	                    			<%= todoList.get(i).getDeadline() %>&nbsp;까지
+	                    		</div>
+		                    	<div>
+			                        <a href="/updateTodo.jsp?idx=<%= todoList.get(i).getIdx() %>">수정</a>
+			                        <span>|</span>
+			                        <a href="/delete?idx=<%= todoList.get(i).getIdx() %>">삭제</a>
+			                    </div>
+		                    </div>
+		                </li>
+            	<%
+		 			}
+		 			
+			        // 기한 지난 할 일
+		        	ArrayList<TodoVO> overTodoList = todoDao.getOverTodoList(vo.getUserId());
+		 			for(int i=0; i < overTodoList.size(); i++) {
+	        	%>
+		                <li>
+		                    <div class="over"><%= overTodoList.get(i).getTodo() %></div>
+		                    <div>
+	                    		<div>
+	                    			<%= overTodoList.get(i).getDeadline() %>&nbsp;까지
+	                    		</div>
+		                    	<div>
+			                        <a href="/updateTodo.jsp?idx=<%= overTodoList.get(i).getIdx() %>">수정</a>
+			                        <span>|</span>
+			                        <a href="/delete?idx=<%= overTodoList.get(i).getIdx() %>">삭제</a>
+			                    </div>
+		                    </div>
 		                </li>
                 <%
-	 				}
-	           	%>	
+		 			}
+	            %>
             </ul>
         </div>
             
