@@ -52,7 +52,7 @@ insert into todoList values(seq_todo_idx.nextval, '국어 시사 어휘 스터�
 insert into todoList values(seq_todo_idx.nextval, '여의도 mbc 입사지원서 최종검토', 'nana_0513', '2022-12-15');
 insert into todoList values(seq_todo_idx.nextval, '뉴스 읽고 분석하면서 논술대비', 'nana_0513', '2022-12-15');
 insert into todoList values(seq_todo_idx.nextval, '면접 의상 준비', 'nana_0513', '2022-12-20');
-insert into todoList values(seq_todo_idx.nextval, 'ebs 수능특강책 사기', 'sieun_k', '2022-11-24');
+insert into todoList values(seq_todo_idx.nextval, 'ebs 수능특강책 사기', 'sieun_k', '2022-11-15');
 insert into todoList values(seq_todo_idx.nextval, '내년 대입 설명 유튜브 찾아보기', 'sieun_k', '2022-11-26');
 insert into todoList values(seq_todo_idx.nextval, '기말고사 시험공부', 'sieun_k', '2022-12-08');
 insert into todoList values(seq_todo_idx.nextval, '사탐 인강 듣기', 'sieun_k', '2022-12-02');
@@ -68,6 +68,7 @@ insert into todoList values(seq_todo_idx.nextval, '캣타워 배송조회', 'cri
 insert into todoList values(seq_todo_idx.nextval, '이불 빨래', 'cristal.97', '2022-12-01');
 insert into todoList values(seq_todo_idx.nextval, '고양이모래 주문하기', 'cristal.97', '2022-11-18');
 insert into todoList values(seq_todo_idx.nextval, '마켓컬리 새벽배송 시키기', 'cristal.97', '2022-11-28');
+
 
 
 
