@@ -72,6 +72,8 @@ insert into todoList values(seq_todo_idx.nextval, '마켓컬리 새벽배송 시
 
 
 
+
+
 --코드에 쓰인 쿼리들---------------------------------------------------------------
 
 select * from members;
