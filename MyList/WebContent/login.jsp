@@ -15,7 +15,7 @@
                 <input type="text" name="userId" id="userId"><br>
 
                 <label for="userPwd">비밀번호</label><br>
-                <input type="text" name="userPwd" id="userPwd"><br>
+                <input type="password" name="userPwd" id="userPwd"><br>
             </div>
             <div>
                 <button type="submit" class="btn yellow">완료</button>
